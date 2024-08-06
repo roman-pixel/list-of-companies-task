@@ -7,7 +7,7 @@ interface Styles {
 interface ButtonProps {
   variation: string;
   children: string;
-  type: 'submit' | 'reset' | 'button' | undefined;
+  type?: 'submit' | 'reset' | 'button' | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
