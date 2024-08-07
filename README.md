@@ -53,5 +53,5 @@ git clone https://github.com/roman-pixel/list-of-companies-task.git
  ```
 4. Запустите приложение 
 ```bash
-yarn start
+yarn dev
 ```
