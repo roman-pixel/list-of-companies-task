@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# List of Companies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+Одностраничное приложение "Список компаний", созданное с использованием React, Redux (redux-toolkit) и TypeScript. Это приложение отображает таблицу компаний с возможностью редактирования данных, добавления и удаления компаний.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функциональные возможности
 
-## Expanding the ESLint configuration
+- **Таблица компаний**: 
+  - Шапка таблицы содержит чекбокс "Выделить всё".
+  - Тело таблицы имеет следующие столбцы:
+    - **Чекбокс**: для выбора/снятия выбора строк.
+    - **Наименование**: редактируемое поле.
+    - **Адрес**: редактируемое поле.
+    - **Дата создания**: не редактируемое поле.
+    - **Дата изменения**: не редактируемое поле.
+  - По клику на чекбокс в строке строка выделяется цветом.
+  - По клику на чекбокс "Выделить всё" выделяются все строки.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Редактирование**: 
+  - Поля "Наименование" и "Адрес" можно редактировать.
+  - Поля "Дата создания" и "Дата изменения" не редактируемые.
+  
+- **Добавление/удаление компаний**:
+  - Добавление новых компаний.
+  - Удаление компаний (включает множественное удаление при выборе нескольких строк).
 
-- Configure the top-level `parserOptions` property like this:
+## Технологии
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- [React](https://reactjs.org/) - Библиотека для создания пользовательских интерфейсов.
+- [Redux (redux-toolkit)](https://redux-toolkit.js.org/) - Инструменты для управления состоянием приложения.
+- [TypeScript](https://www.typescriptlang.org/) - Язык программирования для строгой типизации в JavaScript.
+
+## Демо
+
+Вы можете увидеть демо-версию приложения по следующей ссылке:
+
+[Демо-приложение](https://main--ist-of-companies.netlify.app/)
+
+## Установка
+
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/roman-pixel/list-of-companies-task.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2.	Перейдите в каталог проекта
+   
+4.	Установите зависимости с помощью Yarn:
+ ```bash
+ yarn install
+ ```
+4. Запустите приложение 
+```bash
+yarn start
+```
