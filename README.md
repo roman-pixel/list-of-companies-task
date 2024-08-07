@@ -30,6 +30,7 @@
 - [React](https://reactjs.org/) - Библиотека для создания пользовательских интерфейсов.
 - [Redux (redux-toolkit)](https://redux-toolkit.js.org/) - Инструменты для управления состоянием приложения.
 - [TypeScript](https://www.typescriptlang.org/) - Язык программирования для строгой типизации в JavaScript.
+- [Tailwind CSS](https://tailwindcss.com/) - Утилитарный CSS-фреймворк для создания пользовательских интерфейсов.
 
 ## Демо
 
