@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import TextField from '../ui/TextField';
 import Checkbox from '../ui/Checkbox';
+import NoData from '../ui/NoData';
 
 import {
   ICompany,
@@ -10,7 +11,6 @@ import {
   updateCompany,
 } from '../store/companySlice';
 import { formatDate } from '../utils/helpers';
-import NoData from '../ui/NoData';
 
 function CompanyRow() {
   const dispatch = useDispatch();

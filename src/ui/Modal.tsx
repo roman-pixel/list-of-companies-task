@@ -1,6 +1,7 @@
 import { cloneElement, createContext, useContext, useState } from 'react';
-import { useOutsideClick } from '../hooks/useOutsideClick';
 import { createPortal } from 'react-dom';
+
+import { useOutsideClick } from '../hooks/useOutsideClick';
 
 interface ModalContextType {
   openName: string;

@@ -24,7 +24,7 @@ function TextField({
   const base = 'w-full leading-10 placeholder:text-gray-500';
 
   const styles: Styles = {
-    primary: base + ' bg-gray-300 rounded px-4',
+    primary: base + ' bg-gray-200 rounded px-4',
     inline:
       base + ' bg-transparent hover:bg-slate-200 focus:outline-none min-w-40',
   };
