@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
-import AddCompanyForm from './AddCompanyForm';
+import CompanyForm from './CompanyForm';
 
 import { deleteSelectedCompanies, RootState } from '../store/companySlice';
 
@@ -18,13 +18,13 @@ function TableMenu() {
   }
 
   return (
-    <div className="mt-5 flex items-center gap-4">
+    <div className="mt-5 flex items-center justify-center gap-4">
       <Modal>
         <Modal.Open opens="add">
           <Button variation="primary">Добавить</Button>
         </Modal.Open>
         <Modal.Window name="add" header="Добавить компанию">
-          <AddCompanyForm />
+          <CompanyForm />
         </Modal.Window>
       </Modal>
 

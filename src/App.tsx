@@ -7,7 +7,7 @@ function App() {
     <div>
       <Header />
 
-      <div className="flex flex-col items-center justify-center overflow-auto p-5">
+      <div className="p-1 sm:p-5">
         <CompanyTable />
         <TableMenu />
       </div>

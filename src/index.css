@@ -4,10 +4,10 @@
 
 @layer components {
   .table-header-row {
-    @apply cursor-default border-b border-gray-200 p-3 font-medium;
+    @apply sticky top-0 cursor-default border-b bg-gray-200 px-3 py-2 text-left font-medium text-gray-700;
   }
   .table-body-row {
-    @apply cursor-default border-b border-gray-200 p-3;
+    @apply cursor-default border-b border-gray-200 p-3 text-sm text-gray-600;
   }
 }
 

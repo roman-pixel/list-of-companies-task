@@ -6,11 +6,11 @@ import TextField from '../ui/TextField';
 
 import { addCompany } from '../store/companySlice';
 
-interface AddCompanyFormProps {
+interface CompanyFormProps {
   onCloseModal?: () => void | undefined;
 }
 
-function AddCompanyForm({ onCloseModal }: AddCompanyFormProps) {
+function CompanyForm({ onCloseModal }: CompanyFormProps) {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
@@ -22,7 +22,7 @@ function AddCompanyForm({ onCloseModal }: AddCompanyFormProps) {
   }
 
   return (
-    <form className="flex w-96 flex-col gap-5" onSubmit={handleSubmit}>
+    <form className="flex w-72 flex-col gap-5 sm:w-96" onSubmit={handleSubmit}>
       <TextField
         variation="primary"
         placeholder="Наименование"
@@ -35,7 +35,7 @@ function AddCompanyForm({ onCloseModal }: AddCompanyFormProps) {
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <div className="mt-3 flex justify-end gap-4">
+      <div className="mt-3 flex justify-center gap-4 sm:justify-end">
         <Button variation="secondary" onClick={onCloseModal}>
           Закрыть
         </Button>
@@ -47,4 +47,4 @@ function AddCompanyForm({ onCloseModal }: AddCompanyFormProps) {
   );
 }
 
-export default AddCompanyForm;
+export default CompanyForm;

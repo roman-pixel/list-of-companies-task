@@ -48,7 +48,7 @@ function CompanyRow() {
       {companies.map((company: ICompany) => (
         <tr
           key={company.id}
-          className={`text-sm text-gray-600 ${isChecked(company.id) ? 'bg-blue-50' : ''}`}
+          className={isChecked(company.id) ? 'bg-blue-50' : ''}
         >
           <td className="table-body-row text-center">
             <div className="flex items-center">
@@ -73,7 +73,7 @@ function CompanyRow() {
               onChange={(e) => handleTexFiledChange(e, company.id, 'address')}
             />
           </td>
-          <td className={`table-body-row`}>
+          <td className="table-body-row">
             {formatDate(company.created_at) || '—'}
           </td>
           <td className="table-body-row">

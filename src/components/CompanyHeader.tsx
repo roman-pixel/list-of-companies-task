@@ -38,7 +38,7 @@ function CompanyHeader() {
   }
 
   return (
-    <tr className="bg-gray-200 text-left font-normal text-gray-700">
+    <tr>
       <th className="table-header-row text-center">
         <div className="flex items-center">
           <Checkbox
