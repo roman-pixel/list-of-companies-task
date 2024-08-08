@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { generateRandomId, getCurrentDateTime } from '../utils/helpers';
 import { companies } from '../data/companies';
 
-export interface RootState {
+export interface IRootState {
   companies: ICompaniesState;
 }
 

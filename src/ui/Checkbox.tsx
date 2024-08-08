@@ -1,12 +1,12 @@
 import { ChangeEventHandler } from 'react';
 
-interface CheckboxProps {
+interface ICheckbox {
   checked: boolean;
   title: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-function Checkbox({ checked, title, onChange }: CheckboxProps) {
+function Checkbox({ checked, title, onChange }: ICheckbox) {
   return (
     <input
       title={title}

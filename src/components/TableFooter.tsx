@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/companySlice';
+import { IRootState } from '../store/companySlice';
 
 function TableFooter() {
   const companies = useSelector(
-    (state: RootState) => state.companies.companies,
+    (state: IRootState) => state.companies.companies,
   );
 
   return (

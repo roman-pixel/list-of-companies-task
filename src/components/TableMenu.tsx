@@ -4,13 +4,13 @@ import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 import CompanyForm from './CompanyForm';
 
-import { deleteSelectedCompanies, RootState } from '../store/companySlice';
+import { deleteSelectedCompanies, IRootState } from '../store/companySlice';
 
 function TableMenu() {
   const dispatch = useDispatch();
 
   const selectedCompanies = useSelector(
-    (state: RootState) => state.companies.selectedIds,
+    (state: IRootState) => state.companies.selectedIds,
   );
 
   function handleDelete() {

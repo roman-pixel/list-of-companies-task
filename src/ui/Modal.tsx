@@ -3,19 +3,19 @@ import { createPortal } from 'react-dom';
 
 import { useOutsideClick } from '../hooks/useOutsideClick';
 
-interface ModalContextType {
+interface IModalContext {
   openName: string;
   open: (name: string) => void;
   close: () => void;
 }
 
-const defaultContextValue: ModalContextType = {
+const defaultContextValue: IModalContext = {
   openName: '',
   open: () => {},
   close: () => {},
 };
 
-const ModalContext = createContext<ModalContextType>(defaultContextValue);
+const ModalContext = createContext<IModalContext>(defaultContextValue);
 
 function Modal({ children }: { children: any }) {
   const [openName, setOpenName] = useState('');

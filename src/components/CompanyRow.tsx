@@ -6,7 +6,7 @@ import NoData from '../ui/NoData';
 
 import {
   ICompany,
-  RootState,
+  IRootState,
   toggleSelectCompany,
   updateCompany,
 } from '../store/companySlice';
@@ -15,10 +15,10 @@ import { formatDate } from '../utils/helpers';
 function CompanyRow() {
   const dispatch = useDispatch();
   const companies = useSelector(
-    (state: RootState) => state.companies.companies,
+    (state: IRootState) => state.companies.companies,
   );
   const selectedIds = useSelector(
-    (state: RootState) => state.companies.selectedIds,
+    (state: IRootState) => state.companies.selectedIds,
   );
 
   if (companies.length === 0) return <NoData />;

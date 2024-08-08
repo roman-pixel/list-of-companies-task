@@ -6,11 +6,11 @@ import TextField from '../ui/TextField';
 
 import { addCompany } from '../store/companySlice';
 
-interface CompanyFormProps {
+interface ICompanyForm {
   onCloseModal?: () => void | undefined;
 }
 
-function CompanyForm({ onCloseModal }: CompanyFormProps) {
+function CompanyForm({ onCloseModal }: ICompanyForm) {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');

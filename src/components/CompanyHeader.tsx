@@ -5,7 +5,7 @@ import Checkbox from '../ui/Checkbox';
 
 import {
   deselectAllCompanies,
-  RootState,
+  IRootState,
   selectAllCompanies,
 } from '../store/companySlice';
 
@@ -15,7 +15,7 @@ function CompanyHeader() {
   const [isRowChecked, setIsRowChecked] = useState(false);
 
   const selectedCompanies = useSelector(
-    (state: RootState) => state.companies.selectedIds,
+    (state: IRootState) => state.companies.selectedIds,
   );
 
   useEffect(() => {
