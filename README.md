@@ -47,11 +47,23 @@ git clone https://github.com/roman-pixel/list-of-companies-task.git
 
 2.	Перейдите в каталог проекта
    
-4.	Установите зависимости с помощью Yarn:
+4.	Установите зависимости с помощью yarn или npm:
  ```bash
  yarn install
+ ```
+
+или
+
+ ```bash
+ npm install
  ```
 4. Запустите приложение 
 ```bash
 yarn dev
+```
+
+или
+
+```bash
+npm run dev
 ```
