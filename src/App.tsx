@@ -20,7 +20,12 @@ function App() {
         toastOptions={{
           className:
             'bg-white text-gray-800 dark:bg-slate-700 dark:text-gray-100',
-          duration: 3000,
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
         }}
       />
     </>

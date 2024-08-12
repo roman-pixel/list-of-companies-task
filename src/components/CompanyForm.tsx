@@ -26,11 +26,18 @@ function CompanyForm({
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    dispatch(
-      id ? updateCompany({ id, name, address }) : addCompany({ name, address }),
-    );
-    onCloseModal?.();
-    toast.success(`Запись ${id ? 'обновлена' : 'добавлена'}`);
+
+    if (name && address) {
+      dispatch(
+        id
+          ? updateCompany({ id, name, address })
+          : addCompany({ name, address }),
+      );
+      onCloseModal?.();
+      toast.success(`Запись ${id ? 'обновлена' : 'добавлена'}`);
+    } else {
+      toast.error('Ошибка сохранения');
+    }
   }
 
   return (
