@@ -18,7 +18,8 @@ function App() {
         reverseOrder={false}
         gutter={10}
         toastOptions={{
-          className: '',
+          className:
+            'bg-white text-gray-800 dark:bg-slate-700 dark:text-gray-100',
           duration: 3000,
         }}
       />

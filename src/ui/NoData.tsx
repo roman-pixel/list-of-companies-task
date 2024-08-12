@@ -1,6 +1,9 @@
 function NoData() {
   return (
-    <td colSpan={5} className="py-10 text-center font-medium text-gray-600">
+    <td
+      colSpan={6}
+      className="bg-white py-10 text-center font-medium text-gray-600 dark:bg-slate-800 dark:text-gray-200"
+    >
       Нет данных
     </td>
   );

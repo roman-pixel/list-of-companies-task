@@ -5,22 +5,32 @@ import toast from 'react-hot-toast';
 import Button from '../ui/Button';
 import TextField from '../ui/TextField';
 
-import { addCompany } from '../store/companySlice';
+import { addCompany, updateCompany } from '../store/companySlice';
 
 interface ICompanyForm {
   onCloseModal?: () => void | undefined;
+  id?: number;
+  initialName?: string;
+  initialAddress?: string;
 }
 
-function CompanyForm({ onCloseModal }: ICompanyForm) {
+function CompanyForm({
+  onCloseModal,
+  id,
+  initialName = '',
+  initialAddress = '',
+}: ICompanyForm) {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+  const [name, setName] = useState(initialName);
+  const [address, setAddress] = useState(initialAddress);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    dispatch(addCompany({ name, address }));
+    dispatch(
+      id ? updateCompany({ id, name, address }) : addCompany({ name, address }),
+    );
     onCloseModal?.();
-    toast.success('Запись добавлена');
+    toast.success(`Запись ${id ? 'обновлена' : 'добавлена'}`);
   }
 
   return (
@@ -42,7 +52,7 @@ function CompanyForm({ onCloseModal }: ICompanyForm) {
           Закрыть
         </Button>
         <Button variation="primary" type="submit">
-          Добавить
+          Сохранить
         </Button>
       </div>
     </form>

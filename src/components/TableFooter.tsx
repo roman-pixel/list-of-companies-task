@@ -8,10 +8,7 @@ function TableFooter() {
 
   return (
     <tr>
-      <td
-        colSpan={5}
-        className="sticky bottom-0 bg-gray-100 px-3 py-1 text-gray-600 dark:bg-gray-900 dark:text-gray-100"
-      >
+      <td colSpan={6} className="table-footer">
         Всего: {companies.length}
       </td>
     </tr>

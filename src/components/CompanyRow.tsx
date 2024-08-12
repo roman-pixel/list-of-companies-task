@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import TextField from '../ui/TextField';
 import Checkbox from '../ui/Checkbox';
 import NoData from '../ui/NoData';
 
@@ -8,9 +7,11 @@ import {
   ICompany,
   IRootState,
   toggleSelectCompany,
-  updateCompany,
 } from '../store/companySlice';
-import { formatDate } from '../utils/helpers';
+import { formatDate, sliceText } from '../utils/helpers';
+import Button from '../ui/Button';
+import Modal from '../ui/Modal';
+import CompanyForm from './CompanyForm';
 
 function CompanyRow() {
   const dispatch = useDispatch();
@@ -29,31 +30,18 @@ function CompanyRow() {
     dispatch(toggleSelectCompany(id));
   }
 
-  function handleTexFiledChange(
-    e: React.ChangeEvent<HTMLInputElement>,
-    id: number,
-    field: string,
-  ) {
-    const newValue = e.target.value;
-    dispatch(
-      updateCompany({
-        id,
-        [field]: newValue,
-      }),
-    );
-  }
-
   return (
     <>
       {companies.map((company: ICompany) => (
         <tr
           key={company.id}
-          className={
-            isChecked(company.id) ? 'bg-blue-100 dark:bg-slate-950' : ''
-          }
+          className={`bg-white dark:bg-slate-800 ${isChecked(company.id) ? 'bg-sky-100 dark:bg-slate-950' : ''}`}
         >
-          <td className="table-body-row text-center">
-            <div className="flex items-center">
+          <td
+            className={`table-body-row sticky left-0 bg-white text-center shadow-xl dark:bg-slate-800 ${isChecked(company.id) ? 'bg-sky-100 dark:bg-slate-950' : ''}`}
+          >
+            <div className="pointer-events-none absolute inset-0 border-r border-gray-200 dark:border-slate-600"></div>
+            <div className="flex items-center justify-center">
               <Checkbox
                 checked={isChecked(company.id)}
                 title={isChecked(company.id) ? 'Снять выбор' : 'Выбрать'}
@@ -61,25 +49,35 @@ function CompanyRow() {
               />
             </div>
           </td>
-          <td className="table-body-row hover:bg-slate-200 dark:hover:bg-slate-900">
-            <TextField
-              variation="inline"
-              value={company.name}
-              onChange={(e) => handleTexFiledChange(e, company.id, 'name')}
-            />
-          </td>
-          <td className="table-body-row hover:bg-slate-200 dark:hover:bg-slate-900">
-            <TextField
-              variation="inline"
-              value={company.address}
-              onChange={(e) => handleTexFiledChange(e, company.id, 'address')}
-            />
-          </td>
+          <td className="table-body-row">{sliceText(company.name)}</td>
+          <td className="table-body-row">{sliceText(company.address)}</td>
           <td className="table-body-row">
             {formatDate(company.created_at) || '—'}
           </td>
           <td className="table-body-row">
             {formatDate(company?.updated_at) || '—'}
+          </td>
+          <td
+            className={`table-body-row sticky right-0 bg-white dark:bg-slate-800 ${isChecked(company.id) ? 'bg-sky-100 dark:bg-slate-950' : ''}`}
+          >
+            <div className="pointer-events-none absolute inset-0 border-l border-gray-200 dark:border-slate-600"></div>
+            <div className="flex h-full items-center justify-center">
+              <Modal>
+                <Modal.Open opens={`edit ${company.id}`}>
+                  <Button variation="inline">Ред.</Button>
+                </Modal.Open>
+                <Modal.Window
+                  name={`edit ${company.id}`}
+                  header="Изменение записи"
+                >
+                  <CompanyForm
+                    id={company.id}
+                    initialName={company.name}
+                    initialAddress={company.address}
+                  />
+                </Modal.Window>
+              </Modal>
+            </div>
           </td>
         </tr>
       ))}

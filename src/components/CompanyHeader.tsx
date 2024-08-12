@@ -40,8 +40,9 @@ function CompanyHeader() {
 
   return (
     <tr>
-      <th className="table-header-row text-center">
-        <div className="flex items-center">
+      <th className="table-header-row sticky left-0 z-30 text-center">
+        <div className="pointer-events-none absolute inset-0 border-r border-gray-200 dark:border-slate-600"></div>
+        <div className="flex items-center justify-center">
           <Checkbox
             checked={checked}
             title={checked ? 'Снять выбор' : 'Выбрать все'}
@@ -53,6 +54,9 @@ function CompanyHeader() {
       <th className="table-header-row">Адрес</th>
       <th className="table-header-row">Дата создания</th>
       <th className="table-header-row">Дата изменения</th>
+      <th className="table-header-row sticky right-0 z-30 w-max">
+        <div className="pointer-events-none absolute inset-0 border-l border-gray-200 dark:border-slate-600"></div>
+      </th>
     </tr>
   );
 }

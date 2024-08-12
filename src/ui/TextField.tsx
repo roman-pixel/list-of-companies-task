@@ -1,5 +1,4 @@
-import { ChangeEventHandler, useState } from 'react';
-import { sliceText } from '../utils/helpers';
+import { ChangeEventHandler } from 'react';
 
 interface ITextFiled {
   value: string;
@@ -14,8 +13,6 @@ interface IStyles {
 }
 
 function TextField({ value, onChange, variation, placeholder }: ITextFiled) {
-  const [isFocus, setIsFocus] = useState(false);
-
   const base =
     'w-full leading-10 placeholder:text-gray-500 dark:placeholder:text-gray-400';
 
@@ -32,9 +29,7 @@ function TextField({ value, onChange, variation, placeholder }: ITextFiled) {
       type="text"
       placeholder={placeholder}
       className={styles[variation as keyof IStyles]}
-      onFocus={() => setIsFocus(true)}
-      onBlur={() => setIsFocus(false)}
-      value={isFocus ? value : sliceText(value)}
+      value={value}
       onChange={onChange}
     />
   );
