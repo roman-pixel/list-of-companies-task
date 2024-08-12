@@ -3,15 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from '../ui/Checkbox';
 import NoData from '../ui/NoData';
 
-import {
-  ICompany,
-  IRootState,
-  toggleSelectCompany,
-} from '../store/companySlice';
+import { toggleSelectCompany } from '../store/companySlice';
 import { formatDate, sliceText } from '../utils/helpers';
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 import CompanyForm from './CompanyForm';
+import { IRootState, ICompany } from '../types/companySliceTypes';
 
 function CompanyRow() {
   const dispatch = useDispatch();

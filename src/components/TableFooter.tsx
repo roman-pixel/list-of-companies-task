@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { IRootState } from '../store/companySlice';
+import { IRootState } from '../types/companySliceTypes';
 
 function TableFooter() {
   const companies = useSelector(

@@ -5,9 +5,9 @@ import Checkbox from '../ui/Checkbox';
 
 import {
   deselectAllCompanies,
-  IRootState,
   selectAllCompanies,
 } from '../store/companySlice';
+import { IRootState } from '../types/companySliceTypes';
 
 function CompanyHeader() {
   const dispatch = useDispatch();

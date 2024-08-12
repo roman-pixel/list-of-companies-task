@@ -10,7 +10,7 @@ interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: string | JSX.Element | JSX.Element[];
 }
 
-function Button({ variation, children, ...rest }: IButton) {
+function Button({ variation, children, ...props }: IButton) {
   const base =
     'flex items-center justify-center text-sm font-semibold transition-all duration-200 active:scale-95';
 
@@ -30,7 +30,7 @@ function Button({ variation, children, ...rest }: IButton) {
   };
 
   return (
-    <button className={styles[variation as keyof IStyles]} {...rest}>
+    <button className={styles[variation as keyof IStyles]} {...props}>
       {children}
     </button>
   );

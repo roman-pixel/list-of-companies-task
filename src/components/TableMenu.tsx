@@ -4,8 +4,8 @@ import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 import CompanyForm from './CompanyForm';
 
-import { IRootState } from '../store/companySlice';
 import DeleteDialog from './DeleteDialog';
+import { IRootState } from '../types/companySliceTypes';
 
 function TableMenu() {
   const selectedCompanies = useSelector(
