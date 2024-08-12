@@ -48,7 +48,9 @@ function CompanyRow() {
       {companies.map((company: ICompany) => (
         <tr
           key={company.id}
-          className={isChecked(company.id) ? 'bg-blue-50' : ''}
+          className={
+            isChecked(company.id) ? 'bg-blue-100 dark:bg-slate-950' : ''
+          }
         >
           <td className="table-body-row text-center">
             <div className="flex items-center">
@@ -59,14 +61,14 @@ function CompanyRow() {
               />
             </div>
           </td>
-          <td className="table-body-row hover:bg-slate-200">
+          <td className="table-body-row hover:bg-slate-200 dark:hover:bg-slate-900">
             <TextField
               variation="inline"
               value={company.name}
               onChange={(e) => handleTexFiledChange(e, company.id, 'name')}
             />
           </td>
-          <td className="table-body-row hover:bg-slate-200">
+          <td className="table-body-row hover:bg-slate-200 dark:hover:bg-slate-900">
             <TextField
               variation="inline"
               value={company.address}

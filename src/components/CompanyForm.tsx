@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 import Button from '../ui/Button';
 import TextField from '../ui/TextField';
@@ -19,6 +20,7 @@ function CompanyForm({ onCloseModal }: ICompanyForm) {
     event.preventDefault();
     dispatch(addCompany({ name, address }));
     onCloseModal?.();
+    toast.success('Запись добавлена');
   }
 
   return (

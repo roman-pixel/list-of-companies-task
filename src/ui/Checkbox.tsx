@@ -12,7 +12,7 @@ function Checkbox({ checked, title, onChange }: ICheckbox) {
       title={title}
       checked={checked}
       type="checkbox"
-      className="h-4 w-4 rounded transition-transform duration-200 focus:outline-none active:scale-90"
+      className="custom-checkbox h-4 w-4 appearance-none rounded border border-gray-300 bg-transparent transition-transform duration-200 checked:bg-blue-500 focus:outline-none active:scale-90"
       onChange={onChange}
     />
   );

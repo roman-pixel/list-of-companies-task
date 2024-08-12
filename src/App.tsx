@@ -5,10 +5,10 @@ import Header from './ui/Header';
 
 function App() {
   return (
-    <div className="h-screen bg-gray-100">
+    <>
       <Header />
 
-      <div className="p-1 sm:p-5">
+      <div className="sm:p-5">
         <CompanyTable />
         <TableMenu />
       </div>
@@ -22,7 +22,7 @@ function App() {
           duration: 3000,
         }}
       />
-    </div>
+    </>
   );
 }
 

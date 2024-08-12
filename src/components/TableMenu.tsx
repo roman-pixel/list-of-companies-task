@@ -1,21 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 import CompanyForm from './CompanyForm';
 
-import { deleteSelectedCompanies, IRootState } from '../store/companySlice';
+import { IRootState } from '../store/companySlice';
+import DeleteDialog from './DeleteDialog';
 
 function TableMenu() {
-  const dispatch = useDispatch();
-
   const selectedCompanies = useSelector(
     (state: IRootState) => state.companies.selectedIds,
   );
-
-  function handleDelete() {
-    dispatch(deleteSelectedCompanies());
-  }
 
   return (
     <div className="mt-5 flex items-center justify-center gap-4">
@@ -29,9 +24,14 @@ function TableMenu() {
       </Modal>
 
       {selectedCompanies.length > 0 && (
-        <Button variation="delete" onClick={handleDelete}>
-          Удалить
-        </Button>
+        <Modal>
+          <Modal.Open opens="delete">
+            <Button variation="error">Удалить</Button>
+          </Modal.Open>
+          <Modal.Window name="delete" header="Удаление записи">
+            <DeleteDialog />
+          </Modal.Window>
+        </Modal>
       )}
     </div>
   );

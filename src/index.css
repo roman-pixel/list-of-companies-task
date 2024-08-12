@@ -2,13 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-gray-100 dark:bg-slate-900;
+}
+
 @layer components {
   .table-header-row {
-    @apply sticky top-0 cursor-default bg-gray-100 p-3 text-left font-medium text-gray-700;
+    @apply sticky top-0 z-10 cursor-default bg-gray-100 p-3 text-left font-medium text-gray-700 dark:bg-slate-900 dark:text-gray-100;
   }
   .table-body-row {
-    @apply cursor-default border-b border-gray-200 p-3 text-sm text-gray-600;
+    @apply cursor-default border-b border-gray-200 p-3 text-sm text-gray-600 dark:border-slate-600 dark:text-gray-100;
   }
+}
+
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.custom-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+  border-top: 0;
+  border-left: 0;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease-in-out,
+    width 0.2s ease-in-out,
+    height 0.2s ease-in-out;
+}
+
+.custom-checkbox:checked::after {
+  border-color: white;
+  opacity: 1;
+  width: 5px;
+  height: 9px;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */

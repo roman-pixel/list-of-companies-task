@@ -1,24 +1,30 @@
 interface IStyles {
   primary: string;
-  delete: string;
+  error: string;
   secondary: string;
 }
 
 interface IButton {
   variation: string;
-  children: string;
+  children: string | JSX.Element | JSX.Element[];
   type?: 'submit' | 'reset' | 'button' | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function Button({ variation, onClick, type, children }: IButton) {
   const base =
-    'rounded px-3 py-2 text-sm font-semibold text-white transition-all duration-100 hover:text-stone-200 active:scale-95 sm:px-4 sm:py-2 shadow-lg';
+    'flex items-center justify-center rounded px-3 py-2 text-sm font-semibold transition-all duration-200 hover:text-gray-100 active:scale-95 sm:px-4 sm:py-2 dark:hover:text-gray-200';
 
   const styles: IStyles = {
-    primary: base + ' bg-blue-600 hover:bg-blue-700',
-    delete: base + ' bg-red-600 hover:bg-red-700',
-    secondary: base + ' bg-slate-500',
+    primary:
+      base +
+      ' bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700  dark:hover:bg-blue-600 dark:text-gray-100',
+    error:
+      base +
+      ' bg-red-600 hover:bg-red-700 text-white dark:bg-red-700  dark:hover:bg-red-600 dark:text-gray-100',
+    secondary:
+      base +
+      ' bg-slate-500 hover:bg-slate-600 text-white dark:bg-slate-600 dark:text-gray-100 dark:hover:bg-slate-500',
   };
 
   return (
@@ -28,7 +34,6 @@ function Button({ variation, onClick, type, children }: IButton) {
       onClick={onClick}
     >
       {children}
-      <div className="bg-slate-300"></div>
     </button>
   );
 }

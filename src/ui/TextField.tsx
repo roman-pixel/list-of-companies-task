@@ -16,12 +16,15 @@ interface IStyles {
 function TextField({ value, onChange, variation, placeholder }: ITextFiled) {
   const [isFocus, setIsFocus] = useState(false);
 
-  const base = 'w-full leading-10 placeholder:text-gray-500';
+  const base =
+    'w-full leading-10 placeholder:text-gray-500 dark:placeholder:text-gray-400';
 
   const styles: IStyles = {
-    primary: base + ' bg-gray-200 rounded px-4',
+    primary:
+      base + ' bg-gray-200 rounded px-4 dark:bg-gray-700 dark:text-gray-200',
     inline:
-      base + ' bg-transparent hover:bg-slate-200 focus:outline-none min-w-40',
+      base +
+      ' bg-transparent hover:bg-slate-200 focus:outline-none min-w-40 dark:hover:bg-slate-900',
   };
 
   return (
